@@ -1,10 +1,11 @@
 weapons = {g: "グー", c: "チョキ", p: "パー"}
 @weapons = weapons
-
+MATCH_TIMES = [1, 3, 5].freeze
+@match_times = MATCH_TIMES
 def select_times
   puts "何本勝負？(press 1 or 3 or 5)"
   times = gets.to_i
-  if [1, 3, 5].include?(times)
+  if @match_times.include?(times)
     @times = times
     puts "#{times}本勝負を選びました"
   else
@@ -55,7 +56,7 @@ while n <= @times do
   end
   puts "#{win}勝#{lose}敗"
   n += 1
-  draw
+  draw_flag = false
 end
 
 puts "結果"
